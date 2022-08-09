@@ -1,8 +1,19 @@
+const express = require('express');
 
-// const { v4 } = require('uuid');
+
+const app = express();
+app.use(express.static('public'))
 
 
-const { app } = require("./build/local-server")
+const routes = require("./routes")
+
+routes(app)
+
+app.get('/', (req, res) => {
+	res.send("/Home ed")
+})
+
+
 
 const port = process.env.PORT || 3000;
 
